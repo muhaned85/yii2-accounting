@@ -1,0 +1,21 @@
+{
+    "name": "muh/accounting",
+    "description": "yii2 lib use  double entry system",
+    "type": "library",
+    "keywords": ["accounting double entry"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "muh",
+            "email": "moh.so2001@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "muh\\accounting\\": ""
+        }
+    }
+}

@@ -1,0 +1,31 @@
+accounting/
+├── composer.json                // إعدادات Composer وتعريف الـ autoload
+├── README.md                    // توثيق المشروع وتعليماته
+├── src/
+│   ├── Models/                  // نماذج (ActiveRecord) لقاعدة البيانات
+│   │   ├── Account.php          // نموذج الحسابات (Chart of Accounts)
+│   │   ├── JournalEntry.php     // نموذج القيد المحاسبي الرئيسي
+│   │   └── JournalEntryDetail.php // تفاصيل القيد (خطوط القيد: مدين ودائن)
+│   ├── Services/                // طبقة الخدمات التي تحتوي على منطق العمل
+│   │   ├── JournalService.php   // خدمة لإنشاء، عكس وتأكيد توازن القيود
+│   │   ├── ReportService.php    // خدمة لإنشاء التقارير والقوائم المالية
+│   │   └── TrialBalanceService.php // خدمة لحساب ميزان المراجعة
+│   ├── Interfaces/              // تعريف واجهات الخدمات (لتحقيق التجريد والاعتماد على العقود)
+│   │   ├── JournalServiceInterface.php
+│   │   └── ReportServiceInterface.php
+│   ├── Exceptions/              // تعريف الاستثناءات الخاصة بالنظام
+│   │   ├── UnbalancedEntryException.php  // يُرمى إذا لم يكن القيد متوازناً
+│   │   └── EntryNotFoundException.php      // يُرمى إذا لم يتم العثور على القيد المطلوب
+│   └── Reports/                 // ملفات تقارير محاسبية منفصلة
+│       ├── IncomeStatement.php  // تقرير قائمة الدخل
+│       ├── BalanceSheet.php     // تقرير قائمة المركز المالي
+│       ├── CashFlowStatement.php // تقرير التدفقات النقدية
+│       └── TrialBalance.php     // تقرير ميزان المراجعة
+├── migrations/                  // ملفات الهجرات لإنشاء وتعديل الجداول في قاعدة البيانات
+│   ├── m230217_000001_create_accounts_table.php
+│   ├── m230217_000002_create_journal_entries_table.php
+│   └── m230217_000003_create_journal_entry_details_table.php
+└── tests/                       // اختبارات الوحدة والتكامل
+    ├── models/
+    ├── services/
+    └── bootstrap.php            // تهيئة بيئة الاختبارات
